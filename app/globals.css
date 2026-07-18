@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Visible keyboard focus everywhere — never remove outline without a replacement */
+  :focus-visible {
+    outline: 2px solid #1a7a74;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: #a8d420;
+    color: #161f00;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight text-text-primary;
+  }
+}
+
+@layer components {
+  /* Glassmorphism nav / sticky headers — per DESIGN.md Elevation & Depth */
+  .glass-surface {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Bento cell base */
+  .bento-cell {
+    @apply rounded-bento border border-border bg-white;
+  }
+
+  /* Magnetic hover lift used on clickable cards */
+  .magnetic-hover {
+    transition: transform 0.2s theme("transitionTimingFunction.mechanical"),
+      box-shadow 0.2s theme("transitionTimingFunction.mechanical");
+  }
+  .magnetic-hover:hover {
+    transform: scale(1.02);
+    box-shadow: theme("boxShadow.magnetic-hover");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
