@@ -2,12 +2,11 @@ export const siteConfig = {
   name: "SHASHWAT",
   fullName: "Shashwat Enterprise",
   tagline: "Accelerating Digitalization",
-  description:
-    "Precision engineered enterprise solutions for the modern world.",
+  description: "Precision engineered enterprise solutions for the modern world.",
   url: "https://shashwat.enterprise",
   supportEmail: "support@shashwat.io",
-  contactEmail: "hello@shashwat.enterprise",
-  supportPhone: "+1 (800) SHASHWAT",
+  contactEmail: "info.shashwatinfotech@gmail.com",
+  supportPhone: "+91 94275 48252",
 } as const;
 
 export type NavItem = {
@@ -17,20 +16,19 @@ export type NavItem = {
 };
 
 export const primaryNav: NavItem[] = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "Products", href: "/products" },
-  { label: "Enterprise", href: "/enterprise" },
-  { label: "Resources", href: "/resources" },
-];
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+{ label: "Products", href: "/products" },  { label: "Services", href: "/services" },
+{ label: "Privacy Policy", href: "/privacy" },];
+
 
 export const footerNav: { title: string; links: NavItem[] }[] = [
   {
     title: "Platform",
     links: [
-      { label: "Solutions", href: "/solutions" },
+      { label: "Case Studies", href: "/case-studies" },
       { label: "Products", href: "/products" },
-      { label: "Enterprise", href: "/enterprise" },
-      { label: "Integration", href: "/integration" },
+      { label: "Services", href: "/services" },
     ],
   },
   {
@@ -38,19 +36,22 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Newsroom", href: "/newsroom" },
       { label: "Contact Us", href: "/contact" },
     ],
   },
   {
-    title: "Legal & Contact",
+    title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "/legal/privacy" },
-      { label: "Terms of Service", href: "/legal/terms" },
-      { label: "Security", href: "/legal/security" },
-      { label: "Status", href: "/status" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Security", href: "/security" },
     ],
   },
+];
+
+export const socialLinks = [
+  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { label: "GitHub", href: "https://github.com", icon: "github" },
+  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
 ];
 
 export const authRoutes = {

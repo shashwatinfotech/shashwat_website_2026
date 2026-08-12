@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { inter, jetbrainsMono } from "@/lib/fonts";
 import { siteConfig } from "@/constants/site";
+import { Toaster } from "@/components/ui/toaster";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { ScrollProgress } from "@/components/effects/scroll-progress";
+import { CursorGlow } from "@/components/effects/cursor-glow";
+import { FloatingContact } from "@/components/effects/floating-contact";
+import { AdminShortcut } from "@/components/effects/admin-shortcut";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,20 +24,21 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary">
+        <ScrollProgress />
+        <CursorGlow />
+        <Navbar />
         {children}
+        <Footer />
+        <FloatingContact />
+        <Toaster />
+        <AdminShortcut />
       </body>
     </html>
   );
