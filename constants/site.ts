@@ -35,7 +35,6 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
     title: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Careers", href: "/careers" },
       { label: "Contact Us", href: "/contact" },
     ],
   },

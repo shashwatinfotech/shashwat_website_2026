@@ -8,16 +8,16 @@ import {
 
 const stats = [
   {
-    number:"10+",
+    number:"5+",
     label:"Years Engineering"
   },
   {
-    number:"120+",
+    number:"50+",
     label:"Products Built"
   },
   {
-    number:"40+",
-    label:"Global Clients"
+    number:"100+",
+    label:" Clients"
   },
   {
     number:"99.9%",

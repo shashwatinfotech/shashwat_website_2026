@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Calendar, ChevronDown, Building2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Calendar, ChevronDown, Building2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Reveal } from "@/components/effects/reveal";
-// ⚠️ CONFIRM PATH — same background component used on About/Home/Services
 import AboutBackground from "@/app/about/AboutBackground";
 
 const locations = [
@@ -16,17 +15,13 @@ const locations = [
     name: "HQ — Surat",
     address: "11th Floor, Citadel, Opp. Star Bazaar, Adajan Road, Surat 395009",
   },
-  {
-    name: "Innovation Hub — Ahmedabad",
-    address: "SG Highway, Ahmedabad, Gujarat",
-  },
 ];
 
 const faqs = [
-  { q: "What is the typical response time?", a: "Our team typically responds to all enterprise inquiries within 4-6 business hours." },
-  { q: "Do you offer on-site consultation?", a: "Yes, for enterprise partners we provide on-site architecture reviews." },
-  { q: "Are there direct support lines?", a: "Active clients receive a dedicated technical support line in their dashboard." },
-  { q: "How do I request a demo?", a: "Use the 'Request Demo' button in the navbar and our team will schedule a session." },
+  { q: "What is the typical response time?", a: "We typically respond to enquiries within 24-48 hours." },
+  { q: "Do you work with businesses outside Surat?", a: "Yes, we work with clients across India remotely, and can arrange in-person meetings when needed." },
+  { q: "How do I get a quote?", a: "Fill out the form here with your project details, and we'll get back to you with next steps." },
+  { q: "What information should I include?", a: "A short description of what you're trying to build or solve helps us respond with something useful, rather than a generic reply." },
 ];
 
 function TiltCard({ children }: { children: React.ReactNode }) {
@@ -93,6 +88,40 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 }
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setStatus("success");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      setStatus("error");
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+    }
+  }
+
   return (
     <main className="relative min-h-screen overflow-x-hidden px-margin-mobile py-24 md:px-gutter lg:px-margin-desktop">
 
@@ -112,8 +141,8 @@ export default function ContactPage() {
           </Reveal>
           <Reveal direction="up" delay={200}>
             <p className="mt-4 text-body-lg text-text-secondary">
-              Have a question or need a custom solution? Our team is here to help,
-              usually within a few hours.
+              Have a question or need a custom solution? Send us a message
+              and we'll get back to you.
             </p>
           </Reveal>
         </div>
@@ -125,7 +154,7 @@ export default function ContactPage() {
           <Reveal direction="left" className="lg:col-span-3">
             <form
               className="flex flex-col gap-5 rounded-bento border border-border bg-white/80 backdrop-blur-xl p-6 shadow-level-2 lg:p-8"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleSubmit}
             >
               <h2 className="text-body-lg font-bold text-text-primary">Send a Message</h2>
 
@@ -133,11 +162,13 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="name">Full Name</Label>
                   <Input id="name" type="text" placeholder="Your name" required
+                    value={form.name} onChange={handleChange}
                     className="transition-shadow focus:shadow-[0_0_0_3px_rgba(30,58,138,0.15)]" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="email">Work Email</Label>
                   <Input id="email" type="email" placeholder="you@company.com" required
+                    value={form.email} onChange={handleChange}
                     className="transition-shadow focus:shadow-[0_0_0_3px_rgba(30,58,138,0.15)]" />
                 </div>
               </div>
@@ -145,6 +176,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <Label htmlFor="subject">Subject</Label>
                 <Input id="subject" type="text" placeholder="How can we help?" required
+                  value={form.subject} onChange={handleChange}
                   className="transition-shadow focus:shadow-[0_0_0_3px_rgba(30,58,138,0.15)]" />
               </div>
 
@@ -155,14 +187,29 @@ export default function ContactPage() {
                   placeholder="Tell us about your project goals..."
                   rows={5}
                   required
+                  value={form.message}
+                  onChange={handleChange}
                   className="transition-shadow focus:shadow-[0_0_0_3px_rgba(30,58,138,0.15)]"
                 />
               </div>
 
-              <Button type="submit" variant="primary" size="lg" className="mt-2 w-full sm:w-auto">
+              <Button type="submit" variant="primary" size="lg" disabled={status === "loading"} className="mt-2 w-full sm:w-auto">
                 <Send className="mr-2 h-4 w-4" />
-                Submit Inquiry
+                {status === "loading" ? "Sending..." : "Submit Inquiry"}
               </Button>
+
+              {status === "success" && (
+                <div className="flex items-center gap-2 rounded-lg bg-[#22C55E]/10 px-4 py-3 text-body-sm text-[#16a34a]">
+                  <CheckCircle2 className="h-4 w-4 shrink-0" />
+                  Message sent! We'll get back to you soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="flex items-center gap-2 rounded-lg bg-red-50 px-4 py-3 text-body-sm text-red-600">
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  {errorMsg}
+                </div>
+              )}
             </form>
           </Reveal>
 
@@ -218,35 +265,8 @@ export default function ContactPage() {
                   <Calendar className="h-5 w-5 text-[#1E3A8A]" />
                 </div>
                 <p className="text-body-sm text-text-secondary">
-                  Prefer a direct call? Pick a 15-min slot that works for you.
+                  Prefer a direct call? Reach out via email or phone above to set up a time.
                 </p>
-
-                <div className="flex items-center justify-between rounded-lg border border-border px-3 py-2">
-                  <span className="text-label-sm text-text-secondary">Availability: Mon–Fri</span>
-                  <span className="flex items-center gap-1.5 rounded-full bg-[#22C55E]/10 px-2 py-0.5 text-[10px] font-semibold uppercase text-[#16a34a]">
-                    <motion.span
-                      animate={{ opacity: [1, 0.3, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                      className="h-1.5 w-1.5 rounded-full bg-[#22C55E]"
-                    />
-                    Live
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2">
-                  {["10:00 AM", "11:30 AM", "02:00 PM"].map((slot) => (
-                    <button
-                      key={slot}
-                      className="rounded-lg border border-border py-2 text-label-sm text-text-secondary transition-colors hover:border-[#1E3A8A] hover:text-[#1E3A8A]"
-                    >
-                      {slot}
-                    </button>
-                  ))}
-                </div>
-
-                <Button variant="primary" size="lg" className="w-full">
-                  Open Calendar
-                </Button>
               </div>
             </Reveal>
           </div>
@@ -257,12 +277,12 @@ export default function ContactPage() {
           <Reveal direction="up">
             <div className="mb-8 flex items-center gap-2">
               <MapPin className="h-5 w-5 text-[#1E3A8A]" />
-              <h2 className="text-headline-md text-text-primary">Our Locations</h2>
+              <h2 className="text-headline-md text-text-primary">Our Location</h2>
             </div>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {locations.map((loc, i) => (
-              <Reveal key={loc.name} direction="up" delay={i * 100}>
+            {locations.map((loc) => (
+              <Reveal key={loc.name} direction="up">
                 <TiltCard>
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-container">
                     <MapPin className="h-5 w-5 text-secondary-container-foreground" />

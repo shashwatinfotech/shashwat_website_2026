@@ -7,7 +7,7 @@ import Hero from "./Hero";
 import FounderStory from "./FounderStory";
 import MissionVision from "./MissionVision";
 import EngineeringPrinciples from "./EngineeringPrinciples";
-import MindsBehind from "./MindsBehind";
+
 import AboutTimeline from "./AboutTimeline";
 import Infrastructure from "./Infrastructure";
 import FinalCTA from "./FinalCTA";
@@ -140,42 +140,33 @@ const principles = [
 
 const timeline = [
   {
-    year:
-      "2014",
-    title:
-      "The Beginning",
+    year: "2021",
+    title: "The Beginning",
     description:
       "A small engineering team started building software with a bigger vision.",
   },
 
   {
-    year:
-      "2017",
-    title:
-      "Scaling Products",
+    year: "2023",
+    title: "Scaling Products",
     description:
       "Expanded into enterprise-grade applications.",
   },
 
   {
-    year:
-      "2020",
-    title:
-      "Cloud Era",
+    year: "2025",
+    title: "Cloud Era",
     description:
       "Built scalable cloud-first systems.",
   },
 
   {
-    year:
-      "2026",
-    title:
-      "Engineering At Scale",
+    year: "2026",
+    title: "Engineering At Scale",
     description:
       "Helping businesses worldwide build digital products.",
   },
 ];
-
 
 
 export default function AboutPage() {
@@ -224,12 +215,6 @@ export default function AboutPage() {
       />
 
 
-
-      {/* TECHNOLOGY LEGENDS */}
-
-      <MindsBehind
-        engineers={engineers}
-      />
 
 
 

@@ -80,7 +80,7 @@ const techStack = ["Next.js", "Node.js", "TypeScript", "React", "AWS", "Docker",
 
 const faqs = [
   { q: "What types of projects do you work on?", a: "We work across custom software, cloud infrastructure, mobile apps, and enterprise-grade platforms." },
-  { q: "What is your typical project timeline?", a: "Timelines vary by scope — most enterprise engagements run 8-16 weeks from discovery to deployment." },
+{ q: "What is your typical project timeline?", a: "Timelines vary based on project scope and complexity — we provide a clear estimate after understanding your requirements during the discovery phase." },
   { q: "How do you ensure data security?", a: "Every project follows secure-by-design principles, with regular audits and compliance checks." },
   { q: "Do you provide ongoing support?", a: "Yes — we offer continuous monitoring, maintenance, and scaling support post-launch." },
 ];

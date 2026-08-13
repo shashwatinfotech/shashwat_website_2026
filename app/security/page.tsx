@@ -80,7 +80,7 @@ export default function SecurityPage() {
                 and services.
               </p>
               <p className="mt-2 text-label-sm text-text-secondary">
-                Last updated: January 2026
+                Last updated: August 2026
               </p>
             </MaskReveal>
           </div>

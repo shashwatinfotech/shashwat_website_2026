@@ -2,31 +2,28 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Shield, Globe, Cpu, Cloud, Smartphone, Star, BarChart3, Bot, Award, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Globe, Cpu, Cloud, Smartphone, Bot, Sparkles, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/effects/reveal";
 import { ClientMarquee } from "@/components/effects/client-marquee";
 import AboutBackground from "@/app/about/AboutBackground";
 
-const topRow = [
-  { icon: Cpu, title: "Custom Software", desc: "Bespoke architectures built for high-scale enterprise demands." },
-  { icon: Globe, title: "Web Ecosystems", desc: "Next-gen progressive web experiences that perform." },
-  { icon: Cloud, title: "Cloud Infrastructure", desc: "Scalable AWS, Azure & GCP solutions." },
-];
-
-const stacked = [
-  { icon: Smartphone, title: "Mobile Engineering", desc: "iOS & Android native performance." },
-  { icon: Smartphone, title: "Product Design", desc: "Human-centric interfaces that convert.", swatches: true },
+const services = [
+  { icon: Cpu, title: "Custom Software Development", desc: "Bespoke software built around how your business actually works." },
+  { icon: Globe, title: "Website Development", desc: "Fast, modern websites that represent your brand well." },
+  { icon: Smartphone, title: "Mobile App Development", desc: "iOS & Android apps built with Flutter for a shared codebase." },
+  { icon: Bot, title: "AI / Automation Solutions", desc: "Practical AI and automation that removes repetitive manual work." },
+  { icon: Settings, title: "IT Consulting & Support", desc: "Ongoing guidance and support to keep your systems running." },
 ];
 
 const reasons = [
-  { title: "Precision Engineering", desc: "We architect solutions optimized for scale, security, and long-term maintainability." },
-  { title: "Dedicated Expertise", desc: "A curated team of specialized engineers and strategists who integrate with your team." },
-  { title: "Rapid Deployment", desc: "Our refined agile methodology ensures consistent delivery without compromising quality." },
+  { title: "Hands-On Engineering", desc: "We build and ship the software ourselves — no layers of account managers between you and the people writing your code." },
+  { title: "5+ Years of Experience", desc: "Half a decade of building software across different industries and problem types." },
+  { title: "Close Collaboration", desc: "We work closely with each client, adapting to how you operate rather than forcing a rigid process." },
 ];
 
-const techStack = ["React.js", "Node.js", "PostgreSQL", "AWS", "Python", "Tailwind CSS", "Next.js", "Docker"];
+const techStack = ["React / Next.js", "Node.js", "Python", "Flutter", "Firebase", "AWS / Cloud"];
 
 export default function Home() {
   return (
@@ -44,7 +41,7 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <Reveal direction="blur">
                 <Badge className="border border-[#84CC16]/30 bg-[#84CC16]/10 text-[#0F766E]">
-                  Enterprise Solutions Provider
+                  IT & Software Services
                 </Badge>
               </Reveal>
               <Reveal direction="up" delay={100}>
@@ -55,18 +52,20 @@ export default function Home() {
               </Reveal>
               <Reveal direction="up" delay={200}>
                 <p className="text-body-lg text-text-secondary max-w-lg">
-                  Engineering world-class digital experiences for high-performance
-                  enterprise environments with precision and professional sophistication.
+                  We design and build custom software, websites, mobile apps, and
+                  automation tools for businesses that want technology done right.
                 </p>
               </Reveal>
               <Reveal direction="up" delay={300}>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/contact">
                     <Button className="bg-[#2563EB] hover:bg-[#1d4ed8] text-white" size="lg">
-                      Start Building <ArrowRight className="ml-1 h-4 w-4" />
+                      Start a Project <ArrowRight className="ml-1 h-4 w-4" />
                     </Button>
                   </Link>
-                  <Button variant="secondary" size="lg">View Case Studies</Button>
+                  <Link href="/services">
+                    <Button variant="secondary" size="lg">Our Services</Button>
+                  </Link>
                 </div>
               </Reveal>
 
@@ -83,16 +82,11 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-body-md text-text-secondary">
-                      Trusted by 250+ global clients
+                      5+ years building software
                     </span>
-                    <div className="flex items-center gap-1">
-                      <span className="text-body-md font-semibold text-text-primary">4.9/5</span>
-                      <div className="flex text-[#22D3EE]">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                        ))}
-                      </div>
-                    </div>
+                    <span className="text-body-md font-semibold text-text-primary">
+                      Custom builds, not templates
+                    </span>
                   </div>
                 </div>
               </Reveal>
@@ -105,7 +99,7 @@ export default function Home() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute -top-6 -right-4 z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#22D3EE]/20 bg-[#22D3EE]/10 shadow-level-2"
                 >
-                  <BarChart3 className="h-6 w-6 text-[#0F766E]" />
+                  <Cpu className="h-6 w-6 text-[#0F766E]" />
                 </motion.div>
 
                 <motion.div
@@ -126,41 +120,37 @@ export default function Home() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="col-span-2 rounded-xl border border-border bg-white p-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-label-sm text-text-secondary">Performance Overview</span>
-                        <span className="text-label-sm font-semibold text-[#22D3EE]">+23.5%</span>
+                        <span className="text-label-sm text-text-secondary">What We Build</span>
                       </div>
-                      <svg viewBox="0 0 200 50" className="mt-3 h-12 w-full">
-                        <polyline fill="none" stroke="#2563EB" strokeWidth="2" points="0,40 30,35 60,38 90,20 120,25 150,10 200,5" />
-                      </svg>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <span className="rounded-full bg-[#2563EB]/10 px-3 py-1 text-label-sm text-[#2563EB]">Software</span>
+                        <span className="rounded-full bg-[#0F766E]/10 px-3 py-1 text-label-sm text-[#0F766E]">Web</span>
+                        <span className="rounded-full bg-[#22D3EE]/10 px-3 py-1 text-label-sm text-[#0F766E]">Mobile</span>
+                      </div>
                     </div>
 
                     <div className="rounded-xl border border-border bg-white p-4 flex flex-col items-center justify-center">
-                      <span className="text-label-sm text-text-secondary mb-2">Project Status</span>
-                      <div className="relative h-16 w-16">
-                        <svg viewBox="0 0 36 36" className="h-16 w-16 -rotate-90">
-                          <circle cx="18" cy="18" r="16" fill="none" stroke="#E5E7EB" strokeWidth="3" />
-                          <circle cx="18" cy="18" r="16" fill="none" stroke="#0F766E" strokeWidth="3" strokeDasharray="100" strokeDashoffset="22" strokeLinecap="round" />
-                        </svg>
-                        <span className="absolute inset-0 flex items-center justify-center text-label-sm font-bold text-text-primary">
-                          78%
-                        </span>
+                      <span className="text-label-sm text-text-secondary mb-2">Experience</span>
+                      <div className="flex flex-col items-center">
+                        <span className="text-headline-md font-bold text-text-primary">5+</span>
+                        <span className="text-label-sm text-text-secondary">Years</span>
                       </div>
                     </div>
 
                     <div className="rounded-xl bg-[#0F172A] p-4 font-mono text-xs text-[#22D3EE] leading-relaxed">
                       <div>const Shashwat = {"{"}</div>
-                      <div className="pl-3 text-white/70">vision: "Digital Excellence",</div>
-                      <div className="pl-3 text-white/70">impact: "Global"</div>
+                      <div className="pl-3 text-white/70">focus: "Custom Software",</div>
+                      <div className="pl-3 text-white/70">approach: "Hands-on"</div>
                       <div>{"}"}</div>
                     </div>
                   </div>
 
                   <div className="mt-4 rounded-xl border border-border bg-white p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-label-sm text-text-secondary">Active Projects</span>
-                      <span className="text-body-md font-bold text-text-primary">120+</span>
+                      <span className="text-label-sm text-text-secondary">Core Stack</span>
+                      <span className="text-body-md font-bold text-text-primary">React · Node · Python</span>
                     </div>
-                    <span className="text-label-sm text-text-secondary">Across 15+ Countries</span>
+                    <span className="text-label-sm text-text-secondary">Web, mobile & cloud engineering</span>
                   </div>
                 </div>
 
@@ -170,7 +160,7 @@ export default function Home() {
                   className="absolute -bottom-5 -right-3 z-10 flex items-center gap-2 rounded-xl border border-[#22D3EE]/30 bg-[#22D3EE]/10 px-4 py-3 shadow-level-2"
                 >
                   <Bot className="h-5 w-5 text-[#0F766E]" />
-                  <span className="text-label-sm font-medium text-[#0F766E]">AI Integration Enabled</span>
+                  <span className="text-label-sm font-medium text-[#0F766E]">AI Integration Available</span>
                 </motion.div>
               </div>
             </Reveal>
@@ -184,15 +174,15 @@ export default function Home() {
         <section className="mx-auto max-w-container px-margin-mobile py-24 md:px-gutter lg:px-margin-desktop">
           <Reveal direction="up">
             <div className="mb-12">
-              <p className="text-label-sm uppercase text-text-secondary">Core Competencies</p>
+              <p className="text-label-sm uppercase text-text-secondary">What We Do</p>
               <h2 className="mt-2 text-headline-md text-text-primary max-w-lg">
-                Precision engineering across the full technology stack to drive enterprise innovation.
+                End-to-end software services, from first idea to a running product.
               </h2>
             </div>
           </Reveal>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {topRow.map((service, i) => {
+            {services.map((service, i) => {
               const Icon = service.icon;
               return (
                 <Reveal key={service.title} direction="up" delay={i * 80}>
@@ -206,52 +196,6 @@ export default function Home() {
                 </Reveal>
               );
             })}
-          </div>
-
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col gap-4">
-              {stacked.map((service, i) => {
-                const Icon = service.icon;
-                return (
-                  <Reveal key={service.title} direction="up" delay={300 + i * 80}>
-                    <div className="group h-full cursor-pointer rounded-bento border border-border bg-white p-6 transition-all duration-300 hover:scale-[1.02] hover:border-[#2563EB] hover:shadow-magnetic-hover">
-                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-low group-hover:bg-[#2563EB]/10">
-                        <Icon className="h-5 w-5 text-[#2563EB]" />
-                      </div>
-                      <h3 className="text-body-md font-semibold text-text-primary">{service.title}</h3>
-                      <p className="mt-2 text-body-md text-text-secondary">{service.desc}</p>
-                      {service.swatches && (
-                        <div className="mt-4 flex gap-2">
-                          <div className="h-5 w-5 rounded bg-surface-container-high" />
-                          <div className="h-5 w-5 rounded bg-[#0F766E]" />
-                          <div className="h-5 w-5 rounded bg-[#22D3EE]" />
-                        </div>
-                      )}
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-
-            <Reveal direction="up" delay={380}>
-              <div className="group h-full cursor-pointer rounded-bento border border-[#0F172A] bg-[#0F172A] p-6 transition-all duration-300 hover:scale-[1.02]">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                  <Zap className="h-5 w-5 text-[#059669]" />
-                </div>
-                <h3 className="text-body-md font-semibold text-white">AI Integration</h3>
-                <p className="mt-2 text-body-md text-white/70">Large language models & predictive analytics.</p>
-              </div>
-            </Reveal>
-
-            <Reveal direction="up" delay={460}>
-              <div className="group h-full cursor-pointer rounded-bento border border-border bg-white p-6 transition-all duration-300 hover:scale-[1.02] hover:border-[#2563EB] hover:shadow-magnetic-hover">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-container-low group-hover:bg-[#2563EB]/10">
-                  <Shield className="h-5 w-5 text-[#2563EB]" />
-                </div>
-                <h3 className="text-body-md font-semibold text-text-primary">Cyber Security</h3>
-                <p className="mt-2 text-body-md text-text-secondary">Secure by design.</p>
-              </div>
-            </Reveal>
           </div>
         </section>
 
@@ -272,7 +216,7 @@ export default function Home() {
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute left-6 top-6 flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-level-2"
                       >
-                        <TrendingUp className="h-5 w-5 text-[#2563EB]" />
+                        <Cpu className="h-5 w-5 text-[#2563EB]" />
                       </motion.div>
                       <motion.div
                         animate={{ y: [0, 8, 0], x: [0, -6, 0] }}
@@ -286,11 +230,11 @@ export default function Home() {
                         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                         className="absolute bottom-6 left-16 flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-level-2"
                       >
-                        <Award className="h-4 w-4 text-[#0F766E]" />
+                        <Zap className="h-4 w-4 text-[#0F766E]" />
                       </motion.div>
                     </div>
 
-                    <Badge className="w-fit border border-[#84CC16]/30 bg-[#84CC16]/10 text-[#0F766E]">10+ Years of Excellence</Badge>
+                    <Badge className="w-fit border border-[#84CC16]/30 bg-[#84CC16]/10 text-[#0F766E]">5+ Years Building Software</Badge>
                     <div className="grid grid-cols-3 gap-2">
                       <div className="h-1.5 rounded-full bg-[#2563EB]" />
                       <div className="h-1.5 rounded-full bg-[#22D3EE]" />
@@ -331,7 +275,7 @@ export default function Home() {
           <Reveal direction="up">
             <div className="mb-12 text-center">
               <p className="text-label-sm uppercase text-text-secondary">Our Technology Stack</p>
-              <h2 className="mt-2 text-headline-md text-text-primary">Built on world-class tools</h2>
+              <h2 className="mt-2 text-headline-md text-text-primary">Tools we build with</h2>
             </div>
           </Reveal>
           <div className="flex flex-wrap justify-center gap-3">
@@ -379,11 +323,11 @@ export default function Home() {
                 <div>
                   <h2 className="text-display-lg-mobile font-bold text-white md:text-headline-md">
                     Ready to modernize your{" "}
-                    <span className="text-[#059669]">enterprise operations?</span>
+                    <span className="text-[#059669]">business operations?</span>
                   </h2>
                   <p className="mt-4 text-body-lg text-white/70 max-w-xl">
-                    Join the ranks of high-performing enterprises that trust SHASHWAT
-                    for their critical digital transformations.
+                    Let&apos;s talk about what you&apos;re trying to build — we&apos;ll help you
+                    figure out the right approach and build it with you.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-4">
                     <Link href="/contact">
@@ -391,7 +335,7 @@ export default function Home() {
                     </Link>
                     <Link href="/contact">
                       <Button variant="secondary" className="border border-white/20 bg-transparent text-white hover:bg-white/10" size="lg">
-                        Contact Sales <ArrowRight className="ml-1 h-4 w-4" />
+                        Contact Us <ArrowRight className="ml-1 h-4 w-4" />
                       </Button>
                     </Link>
                   </div>
