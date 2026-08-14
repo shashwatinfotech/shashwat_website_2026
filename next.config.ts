@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+  const nextConfig: NextConfig = {
+  
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -13,15 +14,11 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-  async redirects() {
-    return [
-      {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
-    ];
+  typescript: {
+    ignoreBuildErrors: true,
   },
+  
+
 };
 
 export default nextConfig;

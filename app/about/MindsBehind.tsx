@@ -1,10 +1,10 @@
 "use client";
-
+import Image from "next/image";
 import {
   motion,
   useMotionValue,
   useSpring,
-  useTransform,
+
 } from "framer-motion";
 
 interface Engineer {
@@ -71,18 +71,12 @@ function MindCard({
     >
       {/* IMAGE AREA — full visibility now, no fade/grayscale-by-default */}
       <div className="absolute inset-0">
-        <img
-          src={person.image}
-          alt={person.name}
-          className="
-            h-full
-            w-full
-            object-cover
-            group-hover:scale-110
-            transition
-            duration-700
-          "
-        />
+         <Image
+  src={person.image}
+  alt={person.name}
+  fill
+  className="object-cover group-hover:scale-110 transition duration-700"
+/>
       </div>
 
       {/* DARK SCRIM — replaces the white-fog gradient, keeps image clear + text readable */}

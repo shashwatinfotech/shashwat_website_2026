@@ -322,7 +322,7 @@ gap-6
 
 systems.map(
 
-(system,index)=>(
+(system)=>(
 
 
 <motion.div

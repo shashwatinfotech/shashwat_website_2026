@@ -10,7 +10,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     const Tag = as;
     return (
       <Tag
-        
+        ref={ref}
         className={cn(
           "mx-auto w-full max-w-container px-margin-mobile md:px-gutter lg:px-margin-desktop",
           className

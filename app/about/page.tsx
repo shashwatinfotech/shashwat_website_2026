@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { siteConfig } from "@/constants/site";
+
 import { buildMetadata } from "@/lib/seo";
+
 
 import AboutBackground from "@/app/about/AboutBackground";
 import Hero from "./Hero";
@@ -19,76 +20,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 
-const engineers = [
-  {
-    name: "Alan Turing",
-    role: "Computational Thinking",
-    quote:
-      "Machines take me by surprise with great frequency.",
-    speciality:
-      "Algorithms • Artificial Intelligence • Logic",
-    image:
-      "/images/minds/turing.webp",
-  },
 
-  {
-    name: "Grace Hopper",
-    role: "Programming Pioneer",
-    quote:
-      "The most dangerous phrase is 'we've always done it this way'.",
-    speciality:
-      "Compilers • Languages • Systems",
-    image:
-      "/images/minds/hopper.webp",
-  },
-
-  {
-    name: "Dennis Ritchie",
-    role: "Systems Architect",
-    quote:
-      "Software shapes the world we build.",
-    speciality:
-      "C Language • UNIX • Operating Systems",
-    image:
-      "/images/minds/ritchie.webp",
-  },
-
-  {
-    name: "Ada Lovelace",
-    role:
-      "First Computer Programmer",
-    quote:
-      "The analytical engine weaves algebraic patterns.",
-    speciality:
-      "Mathematics • Computing • Innovation",
-    image:
-      "/images/minds/ada.webp",
-  },
-
-  {
-    name: "Linus Torvalds",
-    role:
-      "Open Source Engineering",
-    quote:
-      "Talk is cheap. Show me the code.",
-    speciality:
-      "Linux • Kernel • Distributed Systems",
-    image:
-      "/images/minds/linus.webp",
-  },
-
-  {
-    name: "Tim Berners-Lee",
-    role:
-      "Web Infrastructure",
-    quote:
-      "The web is more a social creation than a technical one.",
-    speciality:
-      "Internet • Protocols • Web",
-    image:
-      "/images/minds/tim.webp",
-  },
-];
 
 
 const principles = [

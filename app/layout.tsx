@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/effects/scroll-progress";
 import { CursorGlow } from "@/components/effects/cursor-glow";
 import { FloatingContact } from "@/components/effects/floating-contact";
 import { AdminShortcut } from "@/components/effects/admin-shortcut";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-background font-sans text-text-primary">

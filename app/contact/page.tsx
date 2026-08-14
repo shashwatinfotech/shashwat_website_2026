@@ -116,10 +116,10 @@ export default function ContactPage() {
 
       setStatus("success");
       setForm({ name: "", email: "", subject: "", message: "" });
-    } catch (err: any) {
-      setStatus("error");
-      setErrorMsg(err.message || "Something went wrong. Please try again.");
-    }
+     } catch (err: unknown) {
+   setStatus("error");
+   setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+}
   }
 
   return (
