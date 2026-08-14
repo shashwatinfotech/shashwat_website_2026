@@ -7,6 +7,7 @@ import Hero from "./Hero";
 import FounderStory from "./FounderStory";
 import MissionVision from "./MissionVision";
 import EngineeringPrinciples from "./EngineeringPrinciples";
+import HowWeOperate from "@/components/sections/how-we-operate";
 
 import AboutTimeline from "./AboutTimeline";
 import Infrastructure from "./Infrastructure";
@@ -129,7 +130,7 @@ const principles = [
 
   {
     title:
-      "Enterprise Security",
+      "Infotech Security",
     description:
       "Security designed into every layer.",
     icon:
@@ -214,7 +215,9 @@ export default function AboutPage() {
         principles={principles}
       />
 
+    {/* HOW WE OPERATE */}
 
+    <HowWeOperate />
 
 
 

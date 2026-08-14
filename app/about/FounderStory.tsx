@@ -8,7 +8,7 @@ import {
 
 const stats = [
   {
-    number:"5+",
+    number:"10+",
     label:"Years Engineering"
   },
   {

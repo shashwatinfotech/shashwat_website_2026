@@ -28,7 +28,7 @@ const stats = [
     color: "from-emerald-500 to-lime-500",
   },
   {
-    value: "12",
+    value: "10+",
     label: "Years Experience",
     icon: Award,
     color: "from-teal-600 to-cyan-600",

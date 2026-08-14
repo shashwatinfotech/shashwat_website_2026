@@ -239,7 +239,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-body-md font-semibold text-text-primary">Email</h3>
                     <p className="mt-1 text-body-sm text-text-secondary">
-                      info.shashwatinfotech@gmail.com
+                      hello@shashwatinfotech.in
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-body-md font-semibold text-text-primary">Support</h3>
                     <p className="mt-1 text-body-sm text-text-secondary">
-                      +91 94275 48252
+                      +91 9274449511
                     </p>
                   </div>
                 </div>

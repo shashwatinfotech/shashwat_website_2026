@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { MessageCircle, X, Mail, Phone } from "lucide-react";
+import { MessageCircle, X, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function FloatingContact() {
@@ -13,16 +13,23 @@ export function FloatingContact() {
         "flex flex-col gap-2 transition-all duration-300",
         open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
       )}>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info.shashwatinfotech@gmail.com"
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@shashwatinfotech.in"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-label-sm font-medium text-text-primary shadow-level-2 border border-border hover:border-primary-container transition-colors">
           <Mail className="h-4 w-4 text-primary-container" />Email Us
         </a>
-        <a href="tel:+919427548252"
-          className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-label-sm font-medium text-text-primary shadow-level-2 border border-border hover:border-primary-container transition-colors">
-          <Phone className="h-4 w-4 text-primary-container" />Call Us
-        </a>
+        
+      <a
+  href="https://wa.me/919274449511"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-label-sm font-medium text-text-primary shadow-level-2 border border-border hover:border-primary-container transition-colors"
+>
+  <MessageCircle className="h-4 w-4 text-primary-container" />
+  WhatsApp Us
+</a>
+
         <Link href="/contact"
           className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-label-sm font-medium text-text-primary shadow-level-2 border border-border hover:border-primary-container transition-colors">
           <MessageCircle className="h-4 w-4 text-primary-container" />Contact Form

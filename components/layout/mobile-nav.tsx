@@ -54,7 +54,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 </h2>
 
                 <p className="mt-1 text-xs uppercase tracking-[0.3em] text-slate-500">
-                  Enterprise Technology
+                  Infotech Technology
                 </p>
               </div>
 

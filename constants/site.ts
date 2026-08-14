@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "SHASHWAT",
-  fullName: "Shashwat Enterprise",
+  fullName: "Shashwat Infotech",
   tagline: "Accelerating Digitalization",
   description: "Precision engineered enterprise solutions for the modern world.",
-  url: "https://shashwat.enterprise",
-  supportEmail: "support@shashwat.io",
-  contactEmail: "info.shashwatinfotech@gmail.com",
+  url: "https://shashwat.infotech",
+  supportEmail: "support@shashwat.infotech",
+  contactEmail: "hello@shashwatinfotech.in",
   supportPhone: "+91 92744 49511",
 } as const;
 
@@ -51,6 +51,7 @@ export const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/share/1cRn2Fdao6/", icon: "facebook" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/shashwat-infotech-6b5a38200", icon: "linkedin" },
   { label: "Instagram", href: "https://www.instagram.com/info.shashwatinfotech", icon: "instagram" },
+  
 ];
 
 export const authRoutes = {

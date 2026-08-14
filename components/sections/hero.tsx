@@ -68,7 +68,7 @@ export function Hero() {
     Build
 
     <span className="bg-gradient-to-r from-teal-700 via-emerald-600 to-lime-500 bg-clip-text text-transparent">
-      {" "}Enterprise{" "}
+      {" "}Infotech{" "}
     </span>
 
     Software That Scales.

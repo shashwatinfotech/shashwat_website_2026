@@ -27,7 +27,7 @@ export default function LoginPage() {
               SHASHWAT
             </h1>
             <p className="mt-1 text-label-sm uppercase tracking-widest text-text-secondary">
-              Enterprise Identity
+              Infotech Identity
             </p>
           </div>
         </Reveal>
@@ -132,7 +132,7 @@ export default function LoginPage() {
               <Link href="/security" className="hover:text-text-primary">Security</Link>
             </div>
             <p className="text-label-sm text-text-secondary/70">
-              © 2024 SHASHWAT ENTERPRISE. All rights reserved.
+              © 2024 SHASHWAT INFOTECH. All rights reserved.
             </p>
           </div>
         </Reveal>

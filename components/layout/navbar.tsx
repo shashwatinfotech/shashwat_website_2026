@@ -51,7 +51,7 @@ export function Navbar() {
                   {siteConfig.name}
                 </span>
                 <span className="hidden text-[11px] font-medium tracking-[0.25em] uppercase text-slate-500 lg:block">
-                  Enterprise Technology
+                  INFOTECH Technology
                 </span>
               </div>
             </Link>

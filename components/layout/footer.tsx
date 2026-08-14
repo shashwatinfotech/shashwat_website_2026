@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Mail, Phone, MapPin, Linkedin, Github, Instagram, ArrowUp } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin , Instagram, ArrowUp } from "lucide-react";
 import { siteConfig, footerNav, socialLinks } from "@/constants/site";
 
 const iconMap = {
   linkedin: Linkedin,
-  github: Github,
+    facebook: Facebook,
   instagram: Instagram,
+
+ 
 };
 
 export function Footer() {
@@ -28,9 +30,8 @@ export function Footer() {
               {siteConfig.name}
             </span>
             <p className="text-body-md text-slate-600 max-w-xs">
-              Precision engineering for the next generation of digital
-              enterprise. Accelerating digitalization through world-class
-              technology solutions.
+              Building intelligent digital products with AI, automation and UnSaaS—designed to create impact, accelerate growth and scale businesses. 
+
             </p>
             <div className="flex items-center gap-3 mt-1">
               {socialLinks.map((social) => {
@@ -87,7 +88,7 @@ export function Footer() {
           </a>
           <div className="flex items-center gap-2 text-body-md text-slate-600">
             <MapPin className="h-4 w-4 text-teal-700" />
-            11th Floor, Citadel, Opp. Star Bazaar, Adajan Road, Surat 395009, India
+            Surat , Gujarat, India.
           </div>
         </div>
 

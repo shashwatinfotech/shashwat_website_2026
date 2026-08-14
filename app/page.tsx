@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/effects/reveal";
 import { TestimonialCarousel } from "@/components/effects/testimonial-carousel";
 import AboutBackground from "@/app/about/AboutBackground";
-
+import { HowWeOperateTeaser } from "@/components/sections/how-we-operate";
 const services = [
   { icon: Cpu, title: "Custom Software Development", desc: "Bespoke software built around how your business actually works." },
   { icon: Globe, title: "Website Development", desc: "Fast, modern websites that represent your brand well." },
@@ -20,7 +20,7 @@ const services = [
 
 const reasons = [
   { title: "Hands-On Engineering", desc: "We build and ship the software ourselves — no layers of account managers between you and the people writing your code." },
-  { title: "5+ Years of Experience", desc: "Half a decade of building software across different industries and problem types." },
+  { title: "10+ Years of Experience", desc: "decade+ experience of building software across different industries and problem types." },
   { title: "Close Collaboration", desc: "We work closely with each client, adapting to how you operate rather than forcing a rigid process." },
 ];
 
@@ -53,8 +53,7 @@ export default function Home() {
               </Reveal>
               <Reveal direction="up" delay={200}>
                 <p className="text-body-lg text-text-secondary max-w-lg">
-                  We design and build custom software, websites, mobile apps, and
-                  automation tools for businesses that want technology done right.
+                 We turn bold ideas into powerful digital products—built to automate, scale, and move your business forward.
                 </p>
               </Reveal>
               <Reveal direction="up" delay={300}>
@@ -83,7 +82,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col">
                     <span className="text-body-md text-text-secondary">
-                      5+ years building software
+                      10+ years building software
                     </span>
                     <span className="text-body-md font-semibold text-text-primary">
                       Custom builds, not templates
@@ -133,7 +132,7 @@ export default function Home() {
                     <div className="rounded-xl border border-border bg-white p-4 flex flex-col items-center justify-center">
                       <span className="text-label-sm text-text-secondary mb-2">Experience</span>
                       <div className="flex flex-col items-center">
-                        <span className="text-headline-md font-bold text-text-primary">5+</span>
+                        <span className="text-headline-md font-bold text-text-primary">10+</span>
                         <span className="text-label-sm text-text-secondary">Years</span>
                       </div>
                     </div>
@@ -149,7 +148,7 @@ export default function Home() {
                   <div className="mt-4 rounded-xl border border-border bg-white p-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-label-sm text-text-secondary">Core Stack</span>
-                      <span className="text-body-md font-bold text-text-primary">React · Node · Python</span>
+                      <span className="text-body-md font-bold text-text-primary"> Automations · AI Agents · UnSaaS</span>
                     </div>
                     <span className="text-label-sm text-text-secondary">Web, mobile & cloud engineering</span>
                   </div>
@@ -235,7 +234,7 @@ export default function Home() {
                       </motion.div>
                     </div>
 
-                    <Badge className="w-fit border border-[#84CC16]/30 bg-[#84CC16]/10 text-[#0F766E]">5+ Years Building Software</Badge>
+                    <Badge className="w-fit border border-[#84CC16]/30 bg-[#84CC16]/10 text-[#0F766E]">10+ Years Building Software</Badge>
                     <div className="grid grid-cols-3 gap-2">
                       <div className="h-1.5 rounded-full bg-[#2563EB]" />
                       <div className="h-1.5 rounded-full bg-[#22D3EE]" />
@@ -270,6 +269,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+             {/* HOW WE OPERATE TEASER */}
+
+        <HowWeOperateTeaser />
 
         {/* TECH STACK */}
         <section className="mx-auto max-w-container px-margin-mobile py-24 md:px-gutter lg:px-margin-desktop">
