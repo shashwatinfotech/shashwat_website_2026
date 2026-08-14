@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://shashwat.enterprise",
   supportEmail: "support@shashwat.io",
   contactEmail: "info.shashwatinfotech@gmail.com",
-  supportPhone: "+91 94275 48252",
+  supportPhone: "+91 92744 49511",
 } as const;
 
 export type NavItem = {
@@ -48,9 +48,9 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
 ];
 
 export const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "GitHub", href: "https://github.com", icon: "github" },
-  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  { label: "Facebook", href: "https://www.facebook.com/share/1cRn2Fdao6/", icon: "facebook" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shashwat-infotech-6b5a38200", icon: "linkedin" },
+  { label: "Instagram", href: "https://www.instagram.com/info.shashwatinfotech", icon: "instagram" },
 ];
 
 export const authRoutes = {
