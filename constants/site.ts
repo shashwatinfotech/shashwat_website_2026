@@ -26,7 +26,7 @@ export const footerNav: { title: string; links: NavItem[] }[] = [
   {
     title: "Platform",
     links: [
-      { label: "Case Studies", href: "/case-studies" },
+     { label: "Case Studies", href: "/casestudies" },
       { label: "Products", href: "/products" },
       { label: "Services", href: "/services" },
     ],

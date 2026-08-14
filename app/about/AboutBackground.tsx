@@ -7,8 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { useEffect, useMemo } from "react";
-
+import { useEffect, useMemo, useState } from "react";
 
 const codeParticles = [
   "const future = await build();",
@@ -26,6 +25,11 @@ const codeParticles = [
 
 export default function AboutBackground() {
 
+const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -280,9 +284,9 @@ export default function AboutBackground() {
 
 
 
-      {
-        particles.map(
-          (particle)=>(
+    {
+  mounted && particles.map(
+    (particle)=>(
 
 
           <motion.div

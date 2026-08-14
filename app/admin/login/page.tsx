@@ -24,10 +24,11 @@ export default function AdminLoginPage() {
       body: JSON.stringify({ password }),
     });
 
-    if (res.ok) {
-      router.push("/admin");
-      router.refresh();
-    } else {
+   if (res.ok) {
+  router.push("/admin");
+  router.refresh();
+  setLoading(false);
+} else {
       setError("Incorrect password.");
       setLoading(false);
     }

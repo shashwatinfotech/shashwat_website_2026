@@ -1,17 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+export function middleware(req: NextRequest) {
+  const session = req.cookies.get("admin_auth")?.value;
+  const isLoginPage = req.nextUrl.pathname === "/admin/login";
 
-  if (pathname === "/admin/login") {
-    return NextResponse.next();
+  if (!session && !isLoginPage) {
+    return NextResponse.redirect(
+      new URL("/admin/login", req.url)
+    );
   }
 
-  if (pathname.startsWith("/admin")) {
-    const authCookie = request.cookies.get("admin_auth")?.value;
-    if (authCookie !== process.env.ADMIN_SESSION_SECRET) {
-      return NextResponse.redirect(new URL("/admin/login", request.url));
-    }
+  if (
+    session !== process.env.ADMIN_SESSION_SECRET &&
+    !isLoginPage
+  ) {
+    return NextResponse.redirect(
+      new URL("/admin/login", req.url)
+    );
   }
 
   return NextResponse.next();

@@ -173,42 +173,42 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
       <PremiumCard className="overflow-hidden">
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex w-full items-start justify-between gap-4 text-left"
+          className="flex w-full flex-col items-start gap-5 text-left sm:flex-row sm:justify-between"
         >
-          <div>
+          <div className="flex flex-col gap-3">
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-mono text-label-sm text-[#0F766E]">{study.code}</span>
-              <span className="rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 px-3 py-0.5 text-label-sm text-[#0F766E]">
+              <span className="rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 px-3 py-1 text-label-sm text-[#0F766E]">
                 ● Delivered
               </span>
             </div>
-            <p className="mt-2 font-mono text-label-sm uppercase tracking-wide text-text-secondary">
+            <p className="font-mono text-label-sm uppercase tracking-wide text-text-secondary">
               {study.sector}
             </p>
-            <h3 className="mt-1 text-headline-md text-text-primary">{study.title}</h3>
-            <p className="mt-2 max-w-2xl text-body-md text-text-secondary">{study.tagline}</p>
+            <h3 className="text-headline-md leading-tight text-text-primary">{study.title}</h3>
+            <p className="max-w-2xl text-body-lg leading-relaxed text-text-secondary">{study.tagline}</p>
           </div>
           <motion.div
             animate={{ rotate: open ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="mt-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-text-secondary"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-text-secondary"
           >
             <ChevronDown className="h-4 w-4" />
           </motion.div>
         </button>
 
-        <div className="mt-5 grid grid-cols-1 gap-3 border-t border-border pt-5 sm:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-5 border-t border-border pt-6 sm:grid-cols-3">
           <div>
             <p className="text-label-sm uppercase text-text-secondary">Client</p>
-            <p className="text-body-md font-semibold text-text-primary">{study.client}</p>
+            <p className="mt-1 text-body-md font-semibold text-text-primary">{study.client}</p>
           </div>
           <div>
             <p className="text-label-sm uppercase text-text-secondary">Sector</p>
-            <p className="text-body-md font-semibold text-text-primary">{study.sector.split("·")[0].trim()}</p>
+            <p className="mt-1 text-body-md font-semibold text-text-primary">{study.sector.split("·")[0].trim()}</p>
           </div>
           <div>
             <p className="text-label-sm uppercase text-text-secondary">Scope</p>
-            <p className="text-body-md font-semibold text-text-primary">{study.scope}</p>
+            <p className="mt-1 text-body-md font-semibold text-text-primary">{study.scope}</p>
           </div>
         </div>
 
@@ -221,29 +221,29 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="mt-6 flex flex-col gap-8 border-t border-border pt-6">
+              <div className="mt-8 flex flex-col gap-10 border-t border-border pt-8">
 
                 {/* PROBLEM */}
                 <div>
                   <p className="font-mono text-label-sm text-[#0F766E]">01 / PROBLEM</p>
-                  <h4 className="mt-1 text-body-lg font-semibold text-text-primary">{study.problemHeading}</h4>
-                  <p className="mt-2 text-body-md text-text-secondary">{study.problemLede}</p>
-                  <div className="mt-3 rounded-xl bg-[#0F172A] p-4">
+                  <h4 className="mt-2 text-body-lg font-semibold leading-snug text-text-primary">{study.problemHeading}</h4>
+                  <p className="mt-3 text-body-md leading-relaxed text-text-secondary">{study.problemLede}</p>
+                  <div className="mt-4 rounded-xl bg-[#0F172A] p-5">
                     <p className="font-mono text-label-sm uppercase text-[#22D3EE]">Core challenge</p>
-                    <p className="mt-1 text-body-sm text-white/80">{study.challenge}</p>
+                    <p className="mt-2 text-body-sm leading-relaxed text-white/80">{study.challenge}</p>
                   </div>
                 </div>
 
                 {/* SOLUTION */}
                 <div>
                   <p className="font-mono text-label-sm text-[#0F766E]">02 / SOLUTION</p>
-                  <h4 className="mt-1 text-body-lg font-semibold text-text-primary">{study.solutionHeading}</h4>
-                  <p className="mt-2 text-body-md text-text-secondary">{study.solutionLede}</p>
-                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <h4 className="mt-2 text-body-lg font-semibold leading-snug text-text-primary">{study.solutionHeading}</h4>
+                  <p className="mt-3 text-body-md leading-relaxed text-text-secondary">{study.solutionLede}</p>
+                  <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
                     {study.stack.map((chip) => (
-                      <div key={chip.role} className="rounded-lg border border-border bg-surface-container-low p-3">
+                      <div key={chip.role} className="rounded-lg border border-border bg-surface-container-low p-4">
                         <p className="text-label-sm uppercase text-text-secondary">{chip.role}</p>
-                        <p className="mt-1 text-body-sm font-semibold text-text-primary">{chip.value}</p>
+                        <p className="mt-1.5 text-body-sm font-semibold text-text-primary">{chip.value}</p>
                       </div>
                     ))}
                   </div>
@@ -253,12 +253,12 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
                 {study.shots && study.shots.length > 0 && (
                   <div>
                     <p className="font-mono text-label-sm text-[#0F766E]">03 / FROM THE BUILD</p>
-                    <div className="mt-3 flex gap-4 overflow-x-auto pb-2">
+                    <div className="mt-4 flex gap-5 overflow-x-auto pb-2">
                       {study.shots.map((shot) => (
-                        <div key={shot.src} className="w-56 shrink-0 overflow-hidden rounded-xl border border-border bg-white">
+                        <div key={shot.src} className="w-64 shrink-0 overflow-hidden rounded-xl border border-border bg-white">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={shot.src} alt={shot.alt} className="h-64 w-full object-cover object-top" />
-                          <p className="p-3 text-label-sm text-text-secondary">{shot.caption}</p>
+                          <img src={shot.src} alt={shot.alt} className="h-72 w-full object-cover object-top" />
+                          <p className="p-4 text-body-sm text-text-secondary">{shot.caption}</p>
                         </div>
                       ))}
                     </div>
@@ -270,10 +270,10 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
                   <p className="font-mono text-label-sm text-[#0F766E]">
                     {study.shots ? "04" : "03"} / DELIVERABLES
                   </p>
-                  <ul className="mt-3 flex flex-col gap-2">
+                  <ul className="mt-4 flex flex-col gap-3">
                     {study.deliverables.map((item) => (
-                      <li key={item} className="flex items-start gap-2 rounded-lg border border-border bg-surface-container-low p-3 text-body-sm text-text-secondary">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0F766E]" />
+                      <li key={item} className="flex items-start gap-3 rounded-lg border border-border bg-surface-container-low p-4 text-body-md text-text-secondary">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0F766E]" />
                         {item}
                       </li>
                     ))}
@@ -319,7 +319,7 @@ export default function CaseStudiesPage() {
 
         {/* CASE STUDIES LIST */}
         <section className="mx-auto max-w-container px-margin-mobile py-20 md:px-gutter lg:px-margin-desktop">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-8">
             {caseStudies.map((study, i) => (
               <CaseStudyCard key={study.id} study={study} index={i} />
             ))}

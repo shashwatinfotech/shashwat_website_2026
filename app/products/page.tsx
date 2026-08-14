@@ -10,6 +10,7 @@ import { Reveal } from "@/components/effects/reveal";
 import { PremiumCard } from "@/components/effects/premium-card";
 import AboutBackground from "@/app/about/AboutBackground";
 
+
 export const metadata = buildMetadata({
   title: "Products",
   path: "/products",
@@ -170,6 +171,61 @@ export default function ProductsPage() {
         </section>
 
         {/* CTA */}
+       {/* FEATURED CASE STUDIES */}
+        <section className="mx-auto max-w-container px-margin-mobile py-20 md:px-gutter lg:px-margin-desktop">
+          <Reveal direction="up">
+            <div className="mb-12 text-center">
+              <p className="text-label-sm uppercase text-text-secondary">Proof, Not Promises</p>
+              <h2 className="mt-2 text-headline-md text-text-primary">Case studies from real builds</h2>
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {[
+              {
+                code: "001",
+                title: "SV Chemtex",
+                sector: "Chemical Industry",
+                tagline: "A native ordering app with a built-in AI chatbot and internet-hosted admin panel.",
+              },
+              {
+                code: "002",
+                title: "Shashwat Business Consultant",
+                sector: "Business Consulting",
+                tagline: "A questionnaire-driven website that recommends the right software automatically.",
+              },
+              {
+                code: "003",
+                title: "Health Insurance Bot",
+                sector: "Health Insurance",
+                tagline: "A RAG chatbot that answers policy questions straight from the source documents.",
+              },
+            ].map((item, i) => (
+              <Reveal key={item.code} direction={i % 2 === 0 ? "left" : "right"} delay={i * 100}>
+                <PremiumCard className="h-full">
+                  <span className="font-mono text-label-sm text-[#0F766E]">CASE STUDY / {item.code}</span>
+                  <p className="mt-2 font-mono text-label-sm uppercase tracking-wide text-text-secondary">
+                    {item.sector}
+                  </p>
+                  <h3 className="mt-2 text-body-lg font-semibold text-text-primary">{item.title}</h3>
+                  <p className="mt-2 text-body-md leading-relaxed text-text-secondary">{item.tagline}</p>
+                </PremiumCard>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal direction="up" delay={300}>
+            <div className="mt-10 text-center">
+              <Link href="/casestudies">
+                <Button variant="secondary" size="lg">
+                  View All Case Studies <ArrowRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </Reveal>
+        </section>
+
+
         <section className="mx-auto max-w-container px-margin-mobile pb-20 pt-16 md:px-gutter lg:px-margin-desktop">
           <Reveal direction="up">
             <div className="relative overflow-hidden rounded-bento bg-gradient-to-br from-[#0d3b36] via-[#0F766E] to-[#0d3b36] p-8 shadow-level-2 lg:p-10">

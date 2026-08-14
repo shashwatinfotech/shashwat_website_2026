@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export async function POST(request: Request) {
   try {
@@ -17,17 +13,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const { error } = await supabase.from("contact_submissions").insert([
-      { name, email, subject, message },
-    ]);
-
-    if (error) {
-      console.error("Supabase insert error:", error);
-      return NextResponse.json(
-        { error: "Could not save your message. Please try again." },
-        { status: 500 }
-      );
-    }
+    await addDoc(collection(db, "contact_submissions"), {
+      name,
+      email,
+      subject,
+      message,
+      createdAt: serverTimestamp(),
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {

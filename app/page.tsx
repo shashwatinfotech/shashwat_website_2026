@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap, Globe, Cpu, Cloud, Smartphone, Bot, Sparkles, Settings } from "lucide-react";
+import { ArrowRight, CheckCircle, Zap, Globe, Cpu, Cloud, Smartphone, Bot, Sparkles, Settings, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/effects/reveal";
-import { ClientMarquee } from "@/components/effects/client-marquee";
+import { TestimonialCarousel } from "@/components/effects/testimonial-carousel";
 import AboutBackground from "@/app/about/AboutBackground";
 
 const services = [
@@ -15,6 +15,7 @@ const services = [
   { icon: Smartphone, title: "Mobile App Development", desc: "iOS & Android apps built with Flutter for a shared codebase." },
   { icon: Bot, title: "AI / Automation Solutions", desc: "Practical AI and automation that removes repetitive manual work." },
   { icon: Settings, title: "IT Consulting & Support", desc: "Ongoing guidance and support to keep your systems running." },
+  { icon: Server, title: "Cloud & DevOps", desc: "Deployment, hosting, and infrastructure setup that scales as you grow." },
 ];
 
 const reasons = [
@@ -167,8 +168,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CLIENT MARQUEE */}
-        <ClientMarquee />
+        {/* TESTIMONIAL CAROUSEL — replaces old client logo marquee */}
+        <TestimonialCarousel />
 
         {/* SERVICES */}
         <section className="mx-auto max-w-container px-margin-mobile py-24 md:px-gutter lg:px-margin-desktop">

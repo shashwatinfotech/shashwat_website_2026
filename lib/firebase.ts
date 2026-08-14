@@ -29,3 +29,14 @@ if (typeof window !== "undefined") {
     }
   });
 }
+// firebase.ts ke end mein ye add karo, kuch bhi purana mat hatao
+export async function saveFormSubmission(
+  collectionName: string,
+  data: Record<string, any>
+) {
+  const { collection, addDoc, serverTimestamp } = await import("firebase/firestore");
+  return addDoc(collection(db, collectionName), {
+    ...data,
+    createdAt: serverTimestamp(),
+  });
+}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, ArrowRight } from "lucide-react";
-import { primaryNav, authRoutes, siteConfig } from "@/constants/site";
+import { primaryNav, siteConfig } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/layout/nav-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -65,26 +65,16 @@ export function Navbar() {
 
             {/* Right Actions */}
             <div className="hidden items-center gap-3 lg:flex">
-              <Link href={authRoutes.login}>
+              <Link href="/contact">
                 <Button
-                  variant="ghost"
+                  variant="primary"
                   size="sm"
-                  className="rounded-full px-5 text-slate-600 transition-all duration-300 hover:bg-slate-100 hover:text-slate-900"
+                  className="group rounded-full bg-gradient-to-r from-teal-700 via-teal-600 to-emerald-600 px-6 shadow-lg shadow-teal-700/20 transition-all duration-300 hover:shadow-xl hover:shadow-teal-600/30"
                 >
-                  Login
+                  <span>Get Started</span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>
-              <Link href="/contact">
-  <Button
-    variant="primary"
-    size="sm"
-    className="group rounded-full bg-gradient-to-r from-teal-700 via-teal-600 to-emerald-600 px-6 shadow-lg shadow-teal-700/20 transition-all duration-300 hover:shadow-xl hover:shadow-teal-600/30"
-  >
-    <span>Get Started</span>
-
-    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-  </Button>
-</Link>
             </div>
 
             {/* Mobile hamburger */}
